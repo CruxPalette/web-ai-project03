@@ -3,11 +3,23 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Data
+//@Data
 @Component
 @ConfigurationProperties(prefix = "aliyun.oss")
 public class AliyunOSSProperties {
     private String endpoint;
     private String bucketName;
     private String region;
+
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public String getRegion() {
+        return region;
+    }
 }
