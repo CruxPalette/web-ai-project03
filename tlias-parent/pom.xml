@@ -22,10 +22,19 @@
     <packaging>pom</packaging>
 <!--    //这个是父工程 把打包方式设置成pom 必须-->
 
+<!--    统一管理版本号    -->
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        自定义属性    下面对应的话可以用${aliyun.sdk.version}}-->
+        <lombok.version>1.18.34</lombok.version>
+        <spring.boot.starter.version>3.2.10</spring.boot.starter.version>
+        <aliyun.sdk.version>3.17.4</aliyun.sdk.version>
+        <jaxb.api.version>2.3.1</jaxb.api.version>
+        <activation.version>1.1.1</activation.version>
+        <jaxb.runtime>2.3.3</jaxb.runtime>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
     <dependencies>
@@ -33,13 +42,50 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-            <version>1.18.38</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>3.5.3</version>
+            <version>${spring.boot.starter.version}</version>
         </dependency>
     </dependencies>
+
+<!--    统一管理依赖的版本-->
+    <dependencyManagement>
+        <dependencies>
+            <!--        阿里云OSS依赖-->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun.sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>${activation.version}</version>
+            </dependency>
+            <!-- no more than 2.3.3-->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${jaxb.runtime}</version>
+            </dependency>
+
+            <!--JWT令牌依赖-->
+            <!--JWT-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 </project>
