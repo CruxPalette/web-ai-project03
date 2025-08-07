@@ -31,6 +31,7 @@ public class OperationLogAspect {
         // 耗时
         long costTime = endTime - startTime;
 
+
         // 构建日志对象
         OperateLog operateLog = new OperateLog();
         operateLog.setOperateEmpId(getCurrentUserId()); // 需要实现 getCurrentUserId 方法
