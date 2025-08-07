@@ -32,6 +32,7 @@ public class OperationLogAspect {
         long costTime = endTime - startTime;
 
         // 构建日志对象
+        System.out.println("just for test");
         OperateLog operateLog = new OperateLog();
         operateLog.setOperateEmpId(getCurrentUserId()); // 需要实现 getCurrentUserId 方法
         operateLog.setOperateTime(LocalDateTime.now());
