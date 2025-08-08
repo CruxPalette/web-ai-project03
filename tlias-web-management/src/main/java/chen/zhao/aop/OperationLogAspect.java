@@ -39,7 +39,6 @@ public class OperationLogAspect {
         operateLog.setMethodParams(Arrays.toString(joinPoint.getArgs()));
         operateLog.setReturnValue(result != null ? result.toString() : "void");
         operateLog.setCostTime(costTime);
-        //
 
         // 插入日志
         operateLogMapper.insert(operateLog);
